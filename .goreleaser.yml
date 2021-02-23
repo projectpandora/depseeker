@@ -1,6 +1,6 @@
 builds:
-  - binary: dnsx
-    main: cmd/dnsx/dnsx.go
+  - binary: depseeker
+    main: cmd/depseeker/depseeker.go
     goos:
       - linux
       - windows
