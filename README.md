@@ -1,4 +1,10 @@
-depseeker is a fast and multi-purpose toolkit for finding npm dependencies on web applications, it is designed to maintain the result reliability with increased threads.
+[![License](https://img.shields.io/badge/license-MIT-_red.svg)](https://opensource.org/licenses/MIT)
+[![Go Report Card](https://goreportcard.com/badge/github.com/projectpandora/depseeker)](https://goreportcard.com/report/github.com/projectpandora/depseeker)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/projectpandora/depseeker/issues)
+[![GitHub Release](https://img.shields.io/github/release/projectpandora/depseeker)](https://github.com/projectpandora/depseeker/releases)
+[![Docker Images](https://img.shields.io/docker/pulls/projectpandora/depseeker.svg)](https://hub.docker.com/r/projectpandora/depseeker)
+
+depseeker is a fast and multi-purpose toolkit for finding npm dependencies in web applications, it is designed to maintain the result reliability with increased threads.
 
 # Resources
 
@@ -53,7 +59,7 @@ depseeker -h
 
 This will display help for the tool.
 
-### Running depseeker with STDIN
+### Running depseeker with stdin
 
 This will run the tool against all the urls in `urls.txt`.
 
