@@ -33,9 +33,8 @@ func New(options *Options) (*Runner, error) {
 
 	depseekerOptions := depseeker.DefaultOptions
 	depseekerOptions.Timeout = time.Duration(options.Timeout) * time.Second
-	depseekerOptions.FollowRedirects = options.FollowRedirects
-	depseekerOptions.FollowHostRedirects = options.FollowHostRedirects
 	depseekerOptions.HTTPProxy = options.HTTPProxy
+	depseekerOptions.UserAgent = options.UserAgent
 
 	var key, value string
 	depseekerOptions.CustomHeaders = make(map[string]string)
@@ -123,16 +122,16 @@ func (runner *Runner) RunEnumeration(ctx context.Context) {
 			defer wg.Done()
 			target, more := <-chanTargets
 			if more {
-				ctxRun, cancel := context.WithTimeout(ctx, time.Second * 120)
+				ctxRun, cancel := context.WithTimeout(ctx, time.Second*time.Duration(runner.options.Timeout))
 				defer cancel()
 				sTarget, ok := target.Key.(string)
 				if ok {
 					dependencies, err := runner.depseeker.Run(ctxRun, sTarget)
 					if err == nil {
-						if (len(dependencies) == 0) {
+						if len(dependencies) == 0 {
 							gologger.Print().Msgf("[+] %v process completed, found 0 dependencies.\n", target.Key)
 						} else {
-							gologger.Print().Msgf("[+] %v process completed, found %d dependencies.\n", target.Key, aurora.Yellow(len(dependencies) ))
+							gologger.Print().Msgf("[+] %v process completed, found %d dependencies.\n", target.Key, aurora.Yellow(len(dependencies)))
 							table := tablewriter.NewWriter(os.Stdout)
 							table.SetHeader([]string{"Name", "Version", "Private"})
 							for _, dependency := range dependencies {

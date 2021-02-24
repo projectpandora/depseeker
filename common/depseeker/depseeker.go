@@ -85,6 +85,9 @@ func (d Depseeker) Run(ctx context.Context, url string) ([]Dependency, error) {
 	options = append(options, chromedp.DisableGPU)
 	options = append(options, chromedp.Flag("ignore-certificate-errors", true)) // RIP shittyproxy.go
 	options = append(options, chromedp.WindowSize(1920, 1080))
+	if d.options.HTTPProxy != "" {
+		options = append(options, chromedp.ProxyServer(d.options.HTTPProxy))
+	}
 
 	// create context
 	chromeCtx, xcancel := chromedp.NewExecAllocator(ctx, options...)

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	// Parse the command line flags and read config files
+	// Parse the command line flags
 	options := runner.ParseOptions()
 
 	run, err := runner.New(options)
