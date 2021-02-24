@@ -1,4 +1,4 @@
-FROM golang:1.15-alpine3.13 AS build
+FROM golang:1.16-alpine3.13 AS build
 RUN GO111MODULE=on go get -v github.com/projectpandora/depseeker/cmd/depseeker
 
 FROM alpine:3.13
