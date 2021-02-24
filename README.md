@@ -72,7 +72,7 @@ cat urls.txt | depseeker
 
 ### Running depseeker with file input
 
-This will run the tool against all the hosts and subdomains in urls.txt.
+This will run the tool against all the urls in urls.txt.
 
 ```sh
 depseeker -l urls.txt -silent
