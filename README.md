@@ -32,14 +32,14 @@ The installation is easy. You can download the pre-built binaries for your platf
 ```sh
 Download latest binary from https://github.com/projectpandora/depseeker/releases
 
-▶ tar -xvf depseeker-linux-amd64.tar
-▶ mv depseeker-linux-amd64 /usr/local/bin/depseeker
+▶ tar -xvf depseeker_linux_amd64.tar.gz
+▶ mv depseeker /usr/local/bin/depseeker
 ▶ depseeker -h
 ```
 
 ### From Source
 
-depseeker requires **GO 1.14+** to install successfully. Run the following command to get the repo -
+depseeker requires **go 1.14+** to install successfully. Run the following command to install:
 
 ```sh
 ▶ GO111MODULE=on go get -v github.com/projectpandora/depseeker/cmd/depseeker
@@ -48,7 +48,10 @@ depseeker requires **GO 1.14+** to install successfully. Run the following comma
 ### From Github
 
 ```sh
-▶ git clone https://github.com/projectpandora/depseeker.git; cd depseeker/cmd/depseeker; go build; mv depseeker /usr/local/bin/; depseeker -version
+▶ git clone https://github.com/projectpandora/depseeker.git
+▶ cd depseeker/cmd/depseeker; go build;
+▶ mv depseeker /usr/local/bin/
+▶ depseeker -version
 ```
 
 # Usage
